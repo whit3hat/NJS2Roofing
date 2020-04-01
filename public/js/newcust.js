@@ -85,8 +85,32 @@ $(document).ready(function(){
         })
         .catch(err => {
             console.log(err);
+        });
+    };
+
+    //function to pass the new address from the customer form
+    function postNewAddress(street, city, state, county) {
+        $.post('/api/address', {street: street, city: city, state: state, county: county} )
+        .then (data => {
+            console.log(data);
         })
-    }
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
+    //function to pass the job info from the customer form
+    function postNewJob(submitDate, jobNotes) {
+        $.post('/api/job', {submitDate: submitDate, jobNotes: jobNotes})
+        .tehn (data => {
+            console.log(data);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    };
+
+    
     //event handler on the submit button to post to the db and run the html creator function
         $("#submit").on('click', function(event) {
             event.preventDefault();
