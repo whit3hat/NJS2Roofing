@@ -110,7 +110,7 @@ $(document).ready(function(){
         });
     };
 
-    
+
     //event handler on the submit button to post to the db and run the html creator function
         $("#submit").on('click', function(event) {
             event.preventDefault();
@@ -142,8 +142,14 @@ $(document).ready(function(){
         jobNotes: noteInput.val().trim()
     };
     console.log('newJob', newJob);
+
     //pass new customer information to the post function above click function
     postNewCust(newCust.firstName, newCust.lastName, newCust.phone, newCust.email)
+    //passing the new address info into the db
+    postNewAddress(newAddress.street, newAddress.city, newAddress.state, newAddress.county)
+    //passing the new job info int the db
+    postNewJob(newJob.submitDate, newJob.jobNotes)
+
     
      });
     
